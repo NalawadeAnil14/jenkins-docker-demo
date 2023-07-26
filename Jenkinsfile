@@ -1,9 +1,14 @@
 pipeline {
-  agent any 
+  agent {
+    docker {
+      image 'alpine' // Docker-in-Docker image
+      args '-v /var/run/docker.sock:/var/run/docker.sock'
+     }
+   }
 
    stages {
 
-    stage('Add jenkins use in docker group') {
+    stage('Check user') {
       steps {
         sh 'whoami'
 //        sh 'usermod -aG docker devops1' // Add Jenkins user to the Docker group
