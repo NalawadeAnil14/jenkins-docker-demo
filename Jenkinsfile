@@ -1,7 +1,13 @@
 pipeline {
   agent any 
 
-  stages {
+   stages {
+    stage('Install docker'){
+      steps {
+        sh 'sudo apt install docker -y'
+      }
+    }
+
     stage('docker_build'){
       steps {
         sh 'docker build -t python-image .'  
@@ -13,7 +19,5 @@ pipeline {
         sh 'docker run -itd python-image'
       }
     }
-
-
   } 
 }
