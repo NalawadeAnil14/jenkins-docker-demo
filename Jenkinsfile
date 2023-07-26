@@ -5,7 +5,7 @@ pipeline {
 
     stage('Add jenkins use in docker group') {
       steps {
-        sh 'usermod -aG docker jenkins' // Add Jenkins user to the Docker group
+        sh 'usermod -aG docker devops1' // Add Jenkins user to the Docker group
         sh 'docker info' // Test Docker command
        }
     }
