@@ -7,7 +7,7 @@ pipeline {
       steps {
         sh 'whoami'
 //        sh 'usermod -aG docker devops1' // Add Jenkins user to the Docker group
-        sh 'docker info' // Test Docker command
+//        sh 'docker info' // Test Docker command
        }
     }
      
