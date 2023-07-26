@@ -1,13 +1,14 @@
 pipeline {
-  agent {
-    dockerContainer {
-      image 'alpine' // Docker-in-Docker image
+//  agent {
+//    dockerContainer {
+//      image 'alpine' // Docker-in-Docker image
 //      args '-v /var/run/docker.sock:/var/run/docker.sock'
-     }
-   }
+//     }
+//   }
+
+   agent { label 'NODE2' }
 
    stages {
-
     stage('Check user') {
       steps {
         sh 'whoami'
