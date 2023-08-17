@@ -5,11 +5,12 @@ pipeline {
 //      args '-v /var/run/docker.sock:/var/run/docker.sock'
 //     }
 //   }
-
-   agent { label 'NODE2' }
+   agent any
+//   agent { label 'NODE2' }
 
    options {
       buildDiscarder(logRotator(numToKeepStr:'1', daysToKeepStr: '7'))
+      buildDiscarder(workspaceCleanup())
    }
 
    stages {
