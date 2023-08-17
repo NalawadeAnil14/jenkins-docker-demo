@@ -9,7 +9,7 @@ pipeline {
    agent { label 'NODE2' }
 
    options {
-      buildDiscarder(logRotator(numTokeepStr:'1', daysToKeepStr: '7'))
+      buildDiscarder(logRotator(numToKeepStr:'1', daysToKeepStr: '7'))
    }
 
    stages {
