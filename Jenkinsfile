@@ -9,8 +9,10 @@ pipeline {
 //   agent { label 'NODE2' }
 
    options {
-      buildDiscarder(logRotator(numToKeepStr:'1', daysToKeepStr: '7'), workspaceCleanup())
-      //buildDiscarder(workspaceCleanup())
+         buildDiscarder(
+            logRotator(daysToKeepStr: '7', numToKeepStr: '1'),
+            workspaceCleaner(deleteDirs: true, skipWhenFailed: true)
+        )
    }
 
    stages {
