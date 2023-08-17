@@ -8,6 +8,10 @@ pipeline {
 
    agent { label 'NODE2' }
 
+   options {
+      buildDiscarder(logRotator(numTokeepStr:'1', daysToKeepStr: '7'))
+   }
+
    stages {
     stage('Check user') {
       steps {
